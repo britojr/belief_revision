@@ -1,0 +1,107 @@
+\documentclass[10pt,a4paper]{amsart}
+% \documentclass[10pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{indentfirst}
+%to bind figures in respective sections
+\usepackage[section]{placeins}
+%to number figures considering the section
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+
+%for pseudocode
+% \usepackage[]{algorithm2e}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+\floatname{algorithm}{Algoritmo}
+\renewcommand{\algorithmicrequire}{\textbf{Entrada:}}
+\renewcommand{\algorithmicensure}{\textbf{Saída:}}
+\renewcommand{\algorithmicwhile}{\textbf{Enquanto}}
+\renewcommand{\algorithmicdo}{\textbf{faça}}
+\renewcommand{\algorithmicfor}{\textbf{Para}}
+\renewcommand{\algorithmicif}{\textbf{Se}}
+\renewcommand{\algorithmicthen}{\textbf{então}}
+
+% for pretty-printed source code
+\usepackage{listings}
+% environment for C code
+\lstnewenvironment{code}
+ {\lstset{ %
+     extendedchars=true,
+     stringstyle=\ttfamily \scriptsize, %
+     showstringspaces=false, aboveskip={1.\baselineskip}, %
+     identifierstyle=\ttfamily \scriptsize \bf, %
+     language=C,           %
+     basicstyle=\ttfamily \small,  %\footnotesize
+     numberstyle=\footnotesize, %
+     % keywordstyle=\bf,       % keyword style
+     tabsize=1,                 % sets default tabsize to 2 spaces
+     captionpos=t,              % sets the caption-position to bottom
+     breaklines=true,           % sets automatic line breaking
+     breakatwhitespace=false,   % sets if automatic breaks should only happen at whitespace
+     %backgroundcolor=\color{black!10},
+   }
+} {}
+
+\author{Jo\~ao S. Brito Jr.\\NUSP: 5889672}
+\title{Laboratório de Inteligência Artificial: \\Exemplos para testes}
+\date{\today}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\begin{document}
+
+% \begin{abstract}
+%   % Resumo
+%   Este documento descreve...
+% \end{abstract}
+
+\maketitle
+
+\section{Exemplo 1}
+\subsection{Base}
+\begin{itemize}
+ \item Todos os pássaros botam ovos
+ \item Todo animal com asas pode voar
+ \item Todo animal com asas é um pássaro
+ \item Eu vi um animal com asas
+ \item O animal que vi era um morcego
+\end{itemize}
+\subsection{Consequências}
+\begin{itemize}
+ \item Todos os pássaros voam
+ \item Morcegos são pássaros
+ \item Morcegos voam
+ \item Morcegos põem ovos
+\end{itemize}
+\subsection{Nova Informação}
+\begin{itemize}
+ \item Morcegos não são pássaros
+ \item O animal que vi era um pinguim
+\end{itemize}
+
+\section{Exemplo 2}
+\subsection{Base}
+\begin{itemize}
+ \item Um problema na internet pode ser um problema no roteador, ou um problema na linha telefônica, ou um problema interno da operadora
+ \item A internet está com problema
+ \item O telefone não está com problema
+\end{itemize}
+\subsection{Consequências}
+\begin{itemize}
+ \item Há um problema no roteador ou na operadora
+\end{itemize}
+\subsection{Nova Informação}
+\begin{itemize}
+ \item O roteador não está com problema
+\end{itemize}
+
+\end{document}

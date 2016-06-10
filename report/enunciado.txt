@@ -1,0 +1,21 @@
+- Para dia 2/6: colocar dois bons exemplos para testes.
+
+- Entregar:
+	código
+	relatório contendo
+		instruções de uso,
+		descrição da implementação,
+		resultados dos testes,
+		comentários pessoais.
+
+
+Dúvidas:
+.As entradas devem ser no formato DIMACS?
+.Como representar essas afirmações textuais de uma maneira "lógica"? (proposicional)
+	exemplo: "o pássaro veio da suécia", "todo pássaro europeu é branco" -> "o passáro é branco"
+
+.Existe algum repositório com bases desse tipo?
+
+.Como obter todos os EQs possíveis? (talvez no código em java)
+
+
