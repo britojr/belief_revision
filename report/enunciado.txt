@@ -10,12 +10,29 @@
 
 
 Dúvidas:
-.As entradas devem ser no formato DIMACS?
+.As entradas devem ser no formato DIMACS? (provável que tanto faz)
 .Como representar essas afirmações textuais de uma maneira "lógica"? (proposicional)
 	exemplo: "o pássaro veio da suécia", "todo pássaro europeu é branco" -> "o passáro é branco"
+
 
 .Existe algum repositório com bases desse tipo?
 
 .Como obter todos os EQs possíveis? (talvez no código em java)
+
+
+==============================================================
+ex:
+The bird caught in the trap is a swan (1)
+The bird caught in the trap comes from Sweden (2)
+Sweden is part of Europe (3)
+All European swans are white (4)
+
+Consequence:
+The bird caught in the trap is European (2^3 -> 5)
+The bird caught in the trap is white (1^5^4 -> 6) [ou (1^2^3^4 -> 6)]
+
+Revision
+The bird caught in the trap is black (-6) [ou (7, 7-> -6)]
+
 
 
