@@ -11,8 +11,9 @@ def read_dimacs(file_name):
 		for line in fdata:
 			if line and not comment_line.match(line) and not stats_line.match(line):
 				nums = line.strip().split()
-				nums.pop()
-				sentences.append(map(int, nums))
+				if nums:
+					nums.pop()
+					sentences.append(map(int, nums))
 	return sentences
 
 #returns the list of atoms of a given sentence

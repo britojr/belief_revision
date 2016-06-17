@@ -19,6 +19,10 @@ Dúvidas:
 
 .Como obter todos os EQs possíveis? (talvez no código em java)
 
+------------------------
+converter para cnf
+http://docs.sympy.org/latest/tutorial/index.html
+https://github.com/bastikr/boolean.py
 
 ==============================================================
 ex:

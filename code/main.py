@@ -6,6 +6,21 @@ from belief_revision import *
 #main
 #=============================
 
+def write_cnf(file_name, sentences):
+	fout = open(file_name, "w")
+	for clause in sentences:
+		s="("
+		signal=""
+		for i, atom in enumerate(clause):
+			if i: signal="+"
+			if atom > 0:
+				s+= "{}{}".format(signal, atom)
+			else:
+				s+= "{}~{}".format(signal, abs(atom))
+		s+=")"
+		fout.write(s + "\n")
+	fout.close()
+
 def main():
 	if len(sys.argv) < 3:
 		print "missing input file"
@@ -27,4 +42,8 @@ def main():
 	if inconsistent(revised):
 		raise ValueError("revised base is inconsistent")
 	
+	write_cnf("cnf_base3.txt", sentences)
+	write_cnf("cnf_new3.txt", new_info)
+	write_cnf("cnf_result3.txt", revised)
+
 main()
