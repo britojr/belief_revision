@@ -1,0 +1,14 @@
+# Compiled source #
+###################
+## Python
+*.pyc
+
+## Java
+*.class
+
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.log
+*.pdf
+# Kile
+*.backup
