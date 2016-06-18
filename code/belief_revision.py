@@ -45,29 +45,28 @@ def replace(sentences, old, new):
 def inconsistent(sentences):
 	return pycosat.solve(sentences) == "UNSAT"
 
-def belief_change(K, R, C):
-	if inconsistent(K) or inconsistent(R):		return None
+def revision(knowlege_base, revision_clauses):
+	if inconsistent(knowlege_base) or inconsistent(revision_clauses):		return None
 	atom_in = []
 	atom_out = []
-	atoms = get_atoms(K).intersection(get_atoms(R).union(get_atoms(C)))
-	prime_value = max(max(get_atoms(K)), max(get_atoms(R)))
-	K_ = prime(K, atoms, prime_value)
-	aux = []
-	aux.extend(K_)
-	aux.extend(R)
-	for a in atoms:
+	cflict_atoms = get_atoms(knowlege_base).intersection(get_atoms(revision_clauses))
+	prime_value = max(max(get_atoms(knowlege_base)), max(get_atoms(revision_clauses)))
+	revised_base = prime(knowlege_base, cflict_atoms, prime_value)
+	union_base = []
+	union_base.extend(revised_base)
+	union_base.extend(revision_clauses)
+	for a in cflict_atoms:
 		#equivalence: a <-> a+p => [[-a, a+p], [a, -a-p]]
-		aux.extend( [[-a, a+prime_value], [a, -a-prime_value]] )
-		if inconsistent(aux):
+		union_base.extend( [[-a, a+prime_value], [a, -a-prime_value]] )
+		if inconsistent(union_base):
 			atom_out.append(a)
-			aux.pop()
-			aux.pop()
+			del union_base[-2:]
 		else:
 			atom_in.append(a)
 	for a in atom_in:
-		replace(K_, a+prime_value, a)
+		replace(revised_base, a+prime_value, a)
 	for a in atom_out:
-		replace(K_, a+prime_value, -a)
-	K_.extend(R)
-	return K_
+		replace(revised_base, a+prime_value, -a)
+	revised_base.extend(revision_clauses)
+	return revised_base
 

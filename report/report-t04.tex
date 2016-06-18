@@ -52,7 +52,7 @@
 } {}
 
 \author{Jo\~ao S. Brito Jr.\\NUSP: 5889672}
-\title{Modelos Probabilísticos Baseados em Grafos: \\Aprendizado e Classificação}
+\title{Laboratório de Inteligência Artificial: \\Revisão de Crenças}
 \date{\today}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
@@ -68,24 +68,24 @@
 
 \section{Introdução}
 
-\section{Background}
-%   conceitos, notações
-\section{Descrição dos Algoritmos}
-%   aqui pode incluir pseudocódigo e descrição
-\subsection{Iteração de Valor}
-\subsection{Iteração de Valor Topológica}
-\subsection{Instruções de Execução}
-\subsection{Principais dificuldades encontradas na implementação}
+\section{Implementação}
+%   descrição da implementação
+\section{Instruções de execução}
+O código foi implementado em \textit{Python 2.7}.
+Para executar, pode-se utilizar o seguinte comando:
+\begin{itemize}
+ \item[] \emph{python main.py <belief-base> <new-information>}
+ \item[] ex: \emph{python main.py base.txt new.txt}
+\end{itemize}
 
-%FOCAR NESTA SEÇÃO DESTA VEZ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-\section{Experimentos e Discussão}
-%FOCAR NESTA SEÇÃO DESTA VEZ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+onde \emph{<belief-base>} é o arquivo contendo as crenças iniciais e \emph{<new-information>} contêm as sentenças para revisão. Ambos arquivos no formato CNF DIMACS.
 
-% configuração dos experimentos: computador, parâmetros utilizados
-% analisar resultados:
-% (acurácia, eficiência computacional, facilidade de implementação etc.)
+\section{Testes e resultados}
+%   incluir testes/ resultados e uma subseção com comentários pessoais
+%   configuração dos experimentos: computador, parâmetros utilizados
+% Todos os experimentos foram efetuados em uma máquina com processador Intel Core 2 Duo 2.10GHz com 4GB de memória.
 
-Todos os experimentos foram efetuados em uma máquina com processador Intel Core 2 Duo 2.10GHz com 4GB de memória.
+
 
 % As figuras abaixo mostram os resultados obtidos:
 % Fig. ~\ref{fig:mid_layer_2_10}
