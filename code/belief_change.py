@@ -1,8 +1,8 @@
 #!/usr/bin/python
 import pycosat
-import re
-import copy
 import itertools
+import copy
+import re
 
 #read a file in DIMACS format and returns a list of sentences
 def read_dimacs(file_name):
@@ -74,57 +74,54 @@ def simple_revision(knowlege_base, revision_clauses):
 	revised_base.extend(revision_clauses)
 	return revised_base
 
+#returns the equivalence clauses for each atom and its respective prime value
 def get_equivalence_clauses(atoms, prime_value):
 	equivalences = []
 	for a in atoms:
 		equivalences.extend(equivalence(a, a+prime_value))
 	return equivalences
 
-#def get_max_equivalence_sets(knowlege_base, revision_clauses):
-	#conflict_atoms = get_atoms(knowlege_base).intersection(get_atoms(revision_clauses))
-	#prime_value = max(max(get_atoms(knowlege_base)), max(get_atoms(revision_clauses)))
-	#union_base = prime(knowlege_base, conflict_atoms, prime_value) + revision_clauses
-
 #returns a list of the maximal equivalence sets
 def get_max_equivalence_sets(union_base, conflict_atoms, prime_value):
-	min_inconsistent_sets = []
-	max_consistent_sets = []
+	minimal_inconsistent_sets = []
+	maximal_consistent_sets = []
+	
 	#iterate through the possible combinations of atoms, descending on size
 	for set_size in xrange(len(conflict_atoms), 0, -1):
 		comb_list = itertools.combinations(conflict_atoms, set_size)
 		for comb in comb_list:
-			set_comb = set(comb)
+			atoms_set = set(comb)
 			inconsist = False
 			consist = False
 			
 			#skip this set if it is a superset of a minimal inconsistent set already known
-			for inc_set in min_inconsistent_sets:
-				if set_comb.issuperset(inc_set):
+			for inc_set in minimal_inconsistent_sets:
+				if atoms_set.issuperset(inc_set):
 					inconsist = True
 					break
 			if inconsist:	continue
 			#skip this set if it is a subset of a maximal consistent set already known
-			for cons_set in max_consistent_sets:
-				if set_comb.issubset(cons_set):
+			for cons_set in maximal_consistent_sets:
+				if atoms_set.issubset(cons_set):
 					consist = True
 					break
 			if consist:	continue
 			
 			#test if the formula (union_base and this set) is satisfiable
-			if is_inconsistent(union_base + get_equivalence_clauses(set_comb, prime_value)):
+			if is_inconsistent(union_base + get_equivalence_clauses(atoms_set, prime_value)):
 				#add a minimal inconsistent set and remove its supersets
-				for inc_set in min_inconsistent_sets:
-					if set_comb.issubset(inc_set):
-						min_inconsistent_sets.remove(inc_set)
-				min_inconsistent_sets.append(set_comb)
+				for inc_set in minimal_inconsistent_sets:
+					if atoms_set.issubset(inc_set):
+						minimal_inconsistent_sets.remove(inc_set)
+				minimal_inconsistent_sets.append(atoms_set)
 			else:
 				#add a maximal consistent set and remove its subsets
-				for cons_set in max_consistent_sets:
-					if set_comb.issuperset(cons_set):
-						max_consistent_sets.remove(cons_set)
-				max_consistent_sets.append(set_comb)
+				for cons_set in maximal_consistent_sets:
+					if atoms_set.issuperset(cons_set):
+						maximal_consistent_sets.remove(cons_set)
+				maximal_consistent_sets.append(atoms_set)
 			
-	return max_consistent_sets
+	return maximal_consistent_sets
 
 #returns a revised base for each maximal equivalence set
 def revision(knowlege_base, revision_clauses):

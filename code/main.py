@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import sys
-from belief_revision import *
+from belief_change import *
 
 #=============================
 #main
