@@ -12,26 +12,6 @@ def read_logical_file(file_name):
 		cnf_expression = reduce(And, map(to_cnf, [line.strip() for line in fdata if line.strip()]))
 	return cnf_expression
 
-#convert an expression to a string, replacing non ASCII characteres
-def expr_to_str(expression):
-	decode_symbols = {
-		u'\xac'		: '~',
-		u'\u2227'	: '&',
-		u'\u2228'	: '|'
-	}
-	print_settings = {
-		"order": None,
-		"full_prec": "auto",
-		"use_unicode": None,
-		"wrap_line": True,
-		"num_columns": 5000,
-		"use_unicode_sqrt_char": True,
-	}
-	s = PrettyPrinter(settings=print_settings).doprint(expression)
-	for symb, dec_symb in decode_symbols.iteritems():
-		s = s.replace(symb, dec_symb)
-	return s
-
 def expr_concat(*expressions):
 	return reduce(And, expressions)
 
@@ -47,7 +27,7 @@ def is_inconsistent(expression):
 	return not satisfiable(expression)
 
 def primed(atom):
-	return symbols(str(atom)+"_pr")
+	return symbols(str(atom)+"_primed")
 
 #change the atoms in the given expression by the prime value p
 def prime(expression, atoms):
@@ -125,3 +105,23 @@ def revision(knowlege_base, revision_clauses):
 			else:
 				revised_base_list[-1] = replace(revised_base_list[-1], primed(atom), Not(atom))
 	return revised_base_list
+
+#convert an expression to a string, replacing non ASCII characteres
+def expr_to_str(expression):
+	decode_symbols = {
+		u'\xac'		: '~',
+		u'\u2227'	: '&',
+		u'\u2228'	: '|'
+	}
+	print_settings = {
+		"order": None,
+		"full_prec": "auto",
+		"use_unicode": None,
+		"wrap_line": True,
+		"num_columns": 5000,
+		"use_unicode_sqrt_char": True,
+	}
+	s = PrettyPrinter(settings=print_settings).doprint(expression)
+	for symb, dec_symb in decode_symbols.iteritems():
+		s = s.replace(symb, dec_symb)
+	return s
