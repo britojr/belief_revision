@@ -12,6 +12,9 @@ def print_base(expression):
 		print line.strip()
 	print
 
+def write_revised_base(revised_list, file_name):
+	pass
+
 def main():
 	if len(sys.argv) < 3:
 		print "missing input file"
@@ -36,5 +39,7 @@ def main():
 		#print_base(revised)
 		if is_inconsistent(revised):
 			raise ValueError("revised base is inconsistent")
+	
+	write_revised_base(revised_list, "revised_base.txt")
 	
 main()
