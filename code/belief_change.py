@@ -1,8 +1,28 @@
 #!/usr/bin/python
-import pycosat
+#import pycosat
 import itertools
 import copy
 import re
+from sympy.logic.boolalg import to_cnf, And
+from sympy.logic.inference import satisfiable
+from sympy.printing.pretty.pretty import PrettyPrinter
+
+#read file and returns a cnf expression
+def read_logical_file(file_name):
+	with open(file_name, 'r') as fdata:
+		cnf_expression = reduce(And, map(to_cnf, [line.strip() for line in fdata if line.strip()]))
+	return cnf_expression
+
+def expression_to_str(expression):
+	decode_symbols = {
+		u'\xac'		: '~',
+		u'\u2227'	: '&',
+		u'\u2228'	: '|'
+	}
+	s = PrettyPrinter().doprint(expression)
+	for symb, dec_symb in decode_symbols.iteritems():
+		s = s.replace(symb, dec_symb)
+	return s
 
 #read a file in DIMACS format and returns a list of sentences
 def read_dimacs(file_name):
@@ -45,8 +65,8 @@ def replace(sentences, old, new):
 				if clause[i] > 0:	clause[i] = new
 				else: 				clause[i] = -new
 
-def is_inconsistent(sentences):
-	return pycosat.solve(sentences) == "UNSAT"
+def is_inconsistent(expression):
+	return not satisfiable(expression)
 
 #equivalence: a <=> b == [[a, -b], [-a, b]]
 def equivalence(a, b):
