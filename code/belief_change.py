@@ -12,6 +12,7 @@ def read_logical_file(file_name):
 		cnf_expression = reduce(And, map(to_cnf, [line.strip() for line in fdata if line.strip()]))
 	return cnf_expression
 
+#convert an expression to a string, replacing non ASCII characteres
 def expr_to_str(expression):
 	decode_symbols = {
 		u'\xac'		: '~',
@@ -55,7 +56,6 @@ def prime(expression, atoms):
 		primed_expression = replace(primed_expression, atom, primed(atom))
 	return primed_expression
 
-#equivalence: a <=> b == a >> b & a << b
 def equivalence(a, b):
 	return to_cnf(Equivalent(a, b))
 

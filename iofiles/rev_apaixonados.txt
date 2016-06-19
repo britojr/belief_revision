@@ -1,0 +1,66 @@
+KB #1:
+amada_ama
+apaixonado_chama_pra_sair
+feliz
+fim_de_semana
+~amada_aceita_sair
+(amada_gosta | ~amada_ama)
+(feliz | irritada)
+(feliz | ~amada_ama)
+(feliz | ~amada_tem_amante)
+(~feliz | ~irritada)
+(amada_ama | aniversario_do_apaixonado | ~amada_presenteia)
+(amada_ama | ~amada_chama_pra_sair | ~amada_presenteia)
+(amada_gosta | irritada | ~apaixonado_presenteia)
+(amada_gosta | ~amada_presenteia | ~aniversario_do_apaixonado)
+(feliz | ~amada_ama | ~apaixonado_chama_pra_sair)
+(feliz | ~amada_ama | ~apaixonado_presenteia)
+(amada_aceita_sair | fim_de_semana | ~amada_ama | ~apaixonado_chama_pra_sair)
+(amada_ama | envergonhada | ~amada_gosta | ~apaixonado_presenteia)
+(amada_ama | fim_de_semana | ~amada_aceita_sair | ~apaixonado_chama_pra_sair)
+(amada_alcoolizada | amada_tem_amante | envergonhada | irritada | ~amada_fala_pouco)
+
+KB #2:
+amada_ama
+apaixonado_chama_pra_sair
+feliz
+fim_de_semana
+~amada_aceita_sair
+(amada_gosta | ~amada_ama)
+(feliz | irritada)
+(feliz | ~amada_ama)
+(feliz | ~amada_tem_amante)
+(~feliz | ~irritada)
+(amada_ama | aniversario_do_apaixonado | ~amada_presenteia)
+(amada_ama | ~amada_chama_pra_sair | ~amada_presenteia)
+(amada_gosta | irritada | ~apaixonado_presenteia)
+(amada_gosta | ~amada_presenteia | ~aniversario_do_apaixonado)
+(feliz | ~amada_ama | ~apaixonado_chama_pra_sair)
+(feliz | ~amada_ama | ~apaixonado_presenteia)
+(amada_aceita_sair | amada_ama | ~apaixonado_chama_pra_sair | ~fim_de_semana)
+(amada_ama | envergonhada | ~amada_gosta | ~apaixonado_presenteia)
+(~amada_aceita_sair | ~amada_ama | ~apaixonado_chama_pra_sair | ~fim_de_semana)
+(amada_alcoolizada | amada_tem_amante | envergonhada | irritada | ~amada_fala_pouco)
+
+KB #3:
+amada_ama
+apaixonado_chama_pra_sair
+feliz
+fim_de_semana
+~amada_aceita_sair
+(amada_gosta | ~amada_ama)
+(feliz | irritada)
+(feliz | ~amada_ama)
+(feliz | ~amada_tem_amante)
+(~feliz | ~irritada)
+(amada_ama | aniversario_do_apaixonado | ~amada_presenteia)
+(amada_ama | ~amada_chama_pra_sair | ~amada_presenteia)
+(amada_gosta | irritada | ~apaixonado_presenteia)
+(amada_gosta | ~amada_presenteia | ~aniversario_do_apaixonado)
+(apaixonado_chama_pra_sair | feliz | ~amada_ama)
+(feliz | ~amada_ama | ~apaixonado_presenteia)
+(amada_aceita_sair | apaixonado_chama_pra_sair | ~amada_ama | ~fim_de_semana)
+(amada_ama | apaixonado_chama_pra_sair | ~amada_aceita_sair | ~fim_de_semana)
+(amada_ama | envergonhada | ~amada_gosta | ~apaixonado_presenteia)
+(amada_alcoolizada | amada_tem_amante | envergonhada | irritada | ~amada_fala_pouco)
+

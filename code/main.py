@@ -13,12 +13,19 @@ def print_base(expression):
 	print
 
 def write_revised_base(revised_list, file_name):
-	pass
+	fout = open(file_name, "w")
+	for i, expression in enumerate(revised_list):
+		fout.write("KB #{}:\n".format(i+1))
+		lines = expr_to_str(expression).split('&')
+		for line in lines:
+			fout.write(line.strip() + "\n")
+		fout.write("\n")
+	fout.close()
 
 def main():
-	if len(sys.argv) < 3:
+	if len(sys.argv) < 4:
 		print "missing input file"
-		print "USAGE: python main.py <base.txt> <new.txt>"
+		print "USAGE: python main.py <base.txt> <new.txt> <result.txt>"
 		exit()
 	
 	knowledge_base = read_logical_file(sys.argv[1])
@@ -40,6 +47,9 @@ def main():
 		if is_inconsistent(revised):
 			raise ValueError("revised base is inconsistent")
 	
-	write_revised_base(revised_list, "revised_base.txt")
+	file_name = sys.argv[3]
+	print "number of choice bases = {}".format(len(revised_list))
+	print "writing revised bases on file {}".format(file_name)
+	write_revised_base(revised_list, file_name)
 	
 main()
