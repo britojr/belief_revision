@@ -1,0 +1,46 @@
+KB #1:
+RJvSC
+RJvZD
+SCvRJ
+SCvZD
+ZDvRJ
+ZDvSC
+~RJvRJ
+~RJvt
+~SCvSC
+~SCvt
+~ZDvZD
+~ZDvt
+(RJvRJ | SCvRJ | ZDvRJ | v0vRJ)
+(RJvRJ | SCvRJ | v1vRJ | ~ZDvRJ)
+(RJvRJ | ZDvRJ | v1vRJ | ~SCvRJ)
+(RJvRJ | v2vRJ | ~SCvRJ | ~ZDvRJ)
+(RJvSC | SCvSC | ZDvSC | v0vSC)
+(RJvSC | SCvSC | v1vSC | ~ZDvSC)
+(RJvSC | ZDvSC | v1vSC | ~SCvSC)
+(RJvSC | v2vSC | ~SCvSC | ~ZDvSC)
+(RJvZD | SCvZD | ZDvZD | v0vZD)
+(RJvZD | SCvZD | v1vZD | ~ZDvZD)
+(RJvZD | ZDvZD | v1vZD | ~SCvZD)
+(RJvZD | v2vZD | ~SCvZD | ~ZDvZD)
+(RJvt | SCvt | ZDvt | v0vt)
+(RJvt | SCvt | v1vt | ~ZDvt)
+(RJvt | ZDvt | v1vt | ~SCvt)
+(RJvt | v2vt | ~SCvt | ~ZDvt)
+(SCvRJ | ZDvRJ | v1vRJ | ~RJvRJ)
+(SCvRJ | v2vRJ | ~RJvRJ | ~ZDvRJ)
+(SCvSC | ZDvSC | v1vSC | ~RJvSC)
+(SCvSC | v2vSC | ~RJvSC | ~ZDvSC)
+(SCvZD | ZDvZD | v1vZD | ~RJvZD)
+(SCvZD | v2vZD | ~RJvZD | ~ZDvZD)
+(SCvt | ZDvt | v1vt | ~RJvt)
+(SCvt | v2vt | ~RJvt | ~ZDvt)
+(ZDvRJ | v2vRJ | ~RJvRJ | ~SCvRJ)
+(ZDvSC | v2vSC | ~RJvSC | ~SCvSC)
+(ZDvZD | v2vZD | ~RJvZD | ~SCvZD)
+(ZDvt | v2vt | ~RJvt | ~SCvt)
+(v3vRJ | ~RJvRJ | ~SCvRJ | ~ZDvRJ)
+(v3vSC | ~RJvSC | ~SCvSC | ~ZDvSC)
+(v3vZD | ~RJvZD | ~SCvZD | ~ZDvZD)
+(v3vt | ~RJvt | ~SCvt | ~ZDvt)
+

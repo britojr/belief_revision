@@ -1,0 +1,7 @@
+tem_asas
+morcego
+
+passaro >> poe__ovo
+tem_asas >> voador
+tem_asas >> passaro
+passaro >> tem_asas

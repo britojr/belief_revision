@@ -1,0 +1,4 @@
+ZDvSC & RJvSC & ~SCvSC
+ZDvRJ & ~RJvRJ & SCvRJ
+~ZDvZD & RJvZD & SCvZD
+~ZDvt & ~RJvt & ~SCvt

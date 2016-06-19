@@ -1,0 +1,18 @@
+KB #1:
+tem_asas
+~morcego
+(passaro | ~tem_asas)
+(poe__ovo | ~passaro)
+(tem_asas | ~passaro)
+(voador | ~tem_asas)
+(~morcego | ~passaro)
+
+KB #2:
+morcego
+tem_asas
+(passaro | poe__ovo)
+(passaro | tem_asas)
+(voador | ~tem_asas)
+(~morcego | ~passaro)
+(~passaro | ~tem_asas)
+

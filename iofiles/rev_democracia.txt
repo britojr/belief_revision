@@ -1,0 +1,104 @@
+KB #1:
+v0vt
+v2vRJ
+v2vSC
+v2vZD
+(RJc | ~tc)
+(RJc | ~v2vRJ)
+(RJc | ~v3vRJ)
+(SCc | v2vSC)
+(SCc | ~tc)
+(SCc | ~v3vSC)
+(ZDc | ~tc)
+(ZDc | ~v2vZD)
+(ZDc | ~v3vZD)
+(tc | ~v2vt)
+(tc | ~v3vt)
+(~RJc | ~v0vRJ)
+(~RJc | ~v1vRJ)
+(~SCc | ~v0vSC)
+(~SCc | ~v1vSC)
+(~ZDc | ~v0vZD)
+(~ZDc | ~v1vZD)
+(~tc | ~v0vt)
+(~tc | ~v1vt)
+(tc | ~RJc | ~SCc | ~ZDc)
+
+KB #2:
+v0vt
+v2vRJ
+v2vSC
+v2vZD
+(RJc | ~tc)
+(RJc | ~v2vRJ)
+(RJc | ~v3vRJ)
+(SCc | ~tc)
+(SCc | ~v2vSC)
+(SCc | ~v3vSC)
+(ZDc | ~tc)
+(ZDc | ~v2vZD)
+(ZDc | ~v3vZD)
+(tc | ~v2vt)
+(tc | ~v3vt)
+(v0vt | ~tc)
+(~RJc | ~v0vRJ)
+(~RJc | ~v1vRJ)
+(~SCc | ~v0vSC)
+(~SCc | ~v1vSC)
+(~ZDc | ~v0vZD)
+(~ZDc | ~v1vZD)
+(~tc | ~v1vt)
+(tc | ~RJc | ~SCc | ~ZDc)
+
+KB #3:
+v0vt
+v2vRJ
+v2vSC
+v2vZD
+(RJc | ~tc)
+(RJc | ~v2vRJ)
+(RJc | ~v3vRJ)
+(SCc | ~tc)
+(SCc | ~v2vSC)
+(SCc | ~v3vSC)
+(ZDc | v2vZD)
+(ZDc | ~tc)
+(ZDc | ~v3vZD)
+(tc | ~v2vt)
+(tc | ~v3vt)
+(~RJc | ~v0vRJ)
+(~RJc | ~v1vRJ)
+(~SCc | ~v0vSC)
+(~SCc | ~v1vSC)
+(~ZDc | ~v0vZD)
+(~ZDc | ~v1vZD)
+(~tc | ~v0vt)
+(~tc | ~v1vt)
+(tc | ~RJc | ~SCc | ~ZDc)
+
+KB #4:
+v0vt
+v2vRJ
+v2vSC
+v2vZD
+(RJc | v2vRJ)
+(RJc | ~tc)
+(RJc | ~v3vRJ)
+(SCc | ~tc)
+(SCc | ~v2vSC)
+(SCc | ~v3vSC)
+(ZDc | ~tc)
+(ZDc | ~v2vZD)
+(ZDc | ~v3vZD)
+(tc | ~v2vt)
+(tc | ~v3vt)
+(~RJc | ~v0vRJ)
+(~RJc | ~v1vRJ)
+(~SCc | ~v0vSC)
+(~SCc | ~v1vSC)
+(~ZDc | ~v0vZD)
+(~ZDc | ~v1vZD)
+(~tc | ~v0vt)
+(~tc | ~v1vt)
+(tc | ~RJc | ~SCc | ~ZDc)
+

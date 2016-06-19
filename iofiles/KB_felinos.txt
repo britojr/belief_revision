@@ -1,0 +1,31 @@
+Adef>>Adec & Ademf
+Garf>>Garc & Garmm
+Godf>>Godc & Godmm
+Glof>>Gloc & Glomf
+Merf>>Merc & Mermm
+Micf>>Micc & Micmm
+
+Adegt>>Adef
+Gargt>>Garf
+Godpum>>Godf
+Glopum>>Glof
+Merlinc>>Merf
+Miclinc>>Micf
+
+(GodMAde | GloMAde)>>AdeMor
+(GodMGar | GloMGar)>>GarMor
+
+(GodMMer | GloMMer)>>MerMor
+(GodMMic | GloMMic)>>MicMor
+
+AdeMGar>>Ademf & Garmm & AdeGarRep & (~Ademor | ~GarMor)
+AdeMGar<<Ademf & Garmm & AdeGarRep & (~Ademor | ~GarMor)
+GodMGlo>>Glomf & Godmm & GodGloRep & (~Glomor | ~GodMor)
+GodMGlo<<Glomf & Godmm & GodGloRep & (~Glomor | ~GodMor)
+
+AdeMz
+GarMz
+GodMz
+GloMz
+MerMz
+MicMz

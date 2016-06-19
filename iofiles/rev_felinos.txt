@@ -1,0 +1,43 @@
+KB #1:
+AdeGarRep
+AdeMor
+AdeMz
+Ademf
+GarMz
+Garmm
+GloMz
+Glomf
+GodGloRep
+GodMz
+Godmm
+MerMz
+Mermm
+MicMz
+Micmm
+(AdeMGar | ~Ademf)
+(AdeMor | ~GloMAde)
+(AdeMor | ~GodMAde)
+(Adec | ~Adef)
+(Adef | ~Adegt)
+(Ademf | ~AdeMGar)
+(GarMor | ~GloMGar)
+(GarMor | ~GodMGar)
+(Garc | ~Garf)
+(Garf | ~Gargt)
+(Gloc | ~Glof)
+(Glof | ~Glopum)
+(Glomf | ~GodMGlo)
+(GodMGlo | ~Glomf)
+(Godc | ~Godf)
+(Godf | ~Godpum)
+(MerMor | ~GloMMer)
+(MerMor | ~GodMMer)
+(Merc | ~Merf)
+(Merf | ~Merlinc)
+(MicMor | ~GloMMic)
+(MicMor | ~GodMMic)
+(Micc | ~Micf)
+(Micf | ~Miclinc)
+(~Ademor | ~GarMor)
+(~Glomor | ~GodMor)
+

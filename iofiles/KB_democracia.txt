@@ -1,0 +1,12 @@
+(v0vZD | v1vZD) >> ~ZDc
+(v2vZD | v3vZD) >> ZDc
+(v0vRJ | v1vRJ) >> ~RJc
+(v2vRJ | v3vRJ) >> RJc
+(v0vSC | v1vSC) >> ~SCc
+(v2vSC | v3vSC) >> SCc
+(v0vt  | v1vt)  >> ~tc
+(v2vt  | v3vt)  >> tc
+
+tc >> (ZDc & RJc & SCc)
+tc << (ZDc & RJc & SCc)
+

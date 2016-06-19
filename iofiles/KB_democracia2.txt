@@ -1,0 +1,20 @@
+(~ZDvZD & ~RJvZD & ~SCvZD) >> v0vZD
+((ZDvZD & ~RJvZD & ~SCvZD) | (~ZDvZD & RJvZD & ~SCvZD) | (~ZDvZD & ~RJvZD & SCvZD)) >> v1vZD
+((~ZDvZD & RJvZD & SCvZD) | (ZDvZD & ~RJvZD & SCvZD) | (ZDvZD & RJvZD & ~SCvZD)) >> v2vZD
+(ZDvZD & SCvZD & RJvZD)>>v3vZD
+
+(~ZDvRJ & ~RJvRJ & ~SCvRJ) >> v0vRJ
+((ZDvRJ & ~RJvRJ & ~SCvRJ) | (~ZDvRJ & RJvRJ & ~SCvRJ) | (~ZDvRJ & ~RJvRJ & SCvRJ)) >> v1vRJ
+((~ZDvRJ & RJvRJ & SCvRJ) | (ZDvRJ & ~RJvRJ & SCvRJ) | (ZDvRJ & RJvRJ & ~SCvRJ)) >> v2vRJ
+(ZDvRJ & SCvRJ & RJvRJ)>>v3vRJ
+
+(~ZDvSC & ~RJvSC & ~SCvSC) >> v0vSC
+((ZDvSC & ~RJvSC & ~SCvSC) | (~ZDvSC & RJvSC & ~SCvSC) | (~ZDvSC &~RJvSC & SCvSC)) >> v1vSC
+((~ZDvSC & RJvSC & SCvSC) | (ZDvSC & ~RJvSC & SCvSC) | (ZDvSC & RJvSC & ~SCvSC)) >> v2vSC
+(ZDvSC & SCvSC & RJvSC)>>v3vSC
+
+(~ZDvt & ~RJvt & ~SCvt) >> v0vt
+((ZDvt & ~RJvt & ~SCvt) | (~ZDvt & RJvt & ~SCvt) | (~ZDvt & ~RJvt & SCvt)) >> v1vt
+((~ZDvt & RJvt & SCvt) | (ZDvt & ~RJvt & SCvt) | (ZDvt & RJvt & ~SCvt)) >> v2vt
+(ZDvt & SCvt & RJvt)>>v3vt
+
