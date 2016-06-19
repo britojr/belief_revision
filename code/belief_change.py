@@ -11,6 +11,7 @@ def read_dimacs(file_name):
 	sentences = []
 	with open(file_name, 'r') as fdata:
 		for line in fdata:
+			line = line.strip()
 			if line and not comment_line.match(line) and not stats_line.match(line):
 				nums = line.strip().split()
 				if nums:

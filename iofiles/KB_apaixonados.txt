@@ -1,0 +1,24 @@
+amada_ama
+feliz
+
+amada_ama -> amada_gosta
+(amada_presenteia & aniversario_do_apaixonado) -> amada_gosta
+
+(amada_presenteia & amada_chama_pra_sair) -> amada_ama
+(amada_presenteia & (~ aniversario_do_apaixonado)) -> amada_ama
+
+(amada_ama & apaixonado_chama_pra_sair & fim_de_semana) -> amada_aceita_sair
+((~ amada_ama) & apaixonado_chama_pra_sair & fim_de_semana) -> (~ amada_aceita_sair)
+
+feliz <-> (~ irritada)
+
+(amada_ama | amada_tem_amante) -> feliz
+(amada_ama & apaixonado_presenteia) -> feliz
+(amada_ama & apaixonado_chama_pra_sair) -> feliz
+
+(apaixonado_presenteia & (~ amada_gosta)) -> irritada
+
+(apaixonado_presenteia & amada_gosta & (~ amada_ama)) -> envergonhada
+
+amada_fala_pouco -> (irritada | envergonhada | amada_alcoolizada | amada_tem_amante)
+

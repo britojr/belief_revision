@@ -1,0 +1,2 @@
+(apaixonado_chama_pra_sair & fim_de_semana & (~ amada_aceita_sair))
+
