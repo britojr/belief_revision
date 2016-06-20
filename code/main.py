@@ -2,9 +2,9 @@
 import sys
 from belief_change import *
 
-#=============================
+#==========================
 #main
-#=============================
+#==========================
 	
 def print_base(expression):
 	lines = expr_to_str(expression).split('&')

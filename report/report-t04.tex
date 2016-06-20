@@ -8,6 +8,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{indentfirst}
+\usepackage{framed}
 %to bind figures in respective sections
 \usepackage[section]{placeins}
 %to number figures considering the section
@@ -61,7 +62,8 @@
 
 \begin{abstract}
   % Resumo
-  Este documento descreve a implementação de um algoritmo de revisão de crenças. Dado um arquivo de entrada com uma base de crenças e um conjunto de sentenças para revisão, é gerada uma nova base de crenças que contém as sentenças do conjunto de revisão e a maior quantidade possível de crenças da base original mantendo a consistência.
+  Este documento descreve a implementação de uma abordagem para revisão de crenças que funciona da seguinte forma: dado um arquivo de entrada com uma base de crenças e um conjunto de sentenças para revisão, o programa gera uma nova base de crenças que contém as sentenças do conjunto de revisão e a maior quantidade possível de crenças da base original mantendo a consistência.
+  Em seguida, apresentamos alguns comentários sobre os testes efetuados.
 \end{abstract}
 
 \maketitle
@@ -99,11 +101,119 @@ Para executar, pode-se utilizar o seguinte comando:
 
 Onde \emph{<belief-base>} é o arquivo contendo as crenças iniciais, \emph{<new-information>} contêm as sentenças para revisão e \emph{<revised-base>} é o arquivo resultado com as possíveis escolhas de bases revisadas.
 
-\section{Testes e resultados}
+\section{Testes e comentários}
 %   incluir testes/ resultados e uma subseção com comentários pessoais
 %   configuração dos experimentos: computador, parâmetros utilizados
 % Todos os experimentos foram efetuados em uma máquina com processador Intel Core 2 Duo 2.10GHz com 4GB de memória.
 
+\subsection{Problema dos animais voadores}
+Neste exemplo, consideramos que um animal voador foi observado e que acreditamos ser um morcego. Além disso, temos algumas crenças sobre animais voadores:
+
+\begin{framed}
+K:
+
+$tem\_asas$
+
+$morcego$
+
+$passaro \Rightarrow poe\_ovo$
+
+$tem\_asas \Rightarrow voador$
+
+$tem\_asas \Rightarrow passaro$
+
+$passaro \Rightarrow tem\_asas$
+\end{framed}
+
+Podemos observar que há uma crença "problemática": $tem\_asas \Rightarrow passaro$, que nos leva a concluir que o animal que vimos é um pássaro.
+
+Em seguida aprendemos uma nova informação: morcegos não podem ser pássaros.
+\begin{framed}
+R:
+
+$morcego \Rightarrow \neg passaro$
+\end{framed}
+
+Ao considerar a nova informação, o programa fornece duas possíveis revisões.
+A primeira delas (K 1) seria considerar que o animal que vimos não é um morcego, o que parece razoável.
+
+\begin{framed}
+K 1:
+
+$tem\_asas$
+
+$\neg morcego$
+
+$(passaro \lor \neg tem_asas)$
+
+$(poe\_ovo \lor \neg passaro)$
+
+$(tem\_asas \lor \neg passaro)$
+
+$(voador \lor \neg tem\_asas)$
+
+$(\neg morcego \lor \neg passaro)$
+\end{framed}
+
+\begin{framed}
+K 2:
+
+$morcego$
+
+$tem\_asas$
+
+$(passaro \lor poe\_ovo)$
+
+$(passaro \lor tem\_asas)$
+
+$(voador \lor \neg tem\_asas)$
+
+$(\neg morcego \lor \neg passaro)$
+
+$(\neg passaro \lor \neg tem\_asas)$
+\end{framed}
+
+Porém na segunda opção (K 2), para manter a crença em "morcego" e manter a consistência, o átomo "pássaro" é negado.
+Isso acaba modificando todas as crenças prévias que tínhamos sobre pássaros. Por exemplo, deixamos de acreditar que todos os pássaros necessariamente têm asas, e passamos a crer que os não pássaros necessariamente põem ovos.
+
+\subsection{Problema dos apaixonados}
+Este domínio modela a situação em que um apaixonado revisa o que acredita em relação à sua amada. Os testes foram efetuados com a base completa, porém nesta discussão focaremos apenas em algumas sentenças específicas.
+
+A base inicial contem, entre outras, as duas sentenças a seguir:
+\begin{framed}
+K:
+
+$amada\_ama$
+
+$(amada\_ama \land apaixonado\_chama\_pra\_sair \land fim\_de\_semana)
+\\ \Rightarrow amada\_aceita\_sair$
+\end{framed}
+
+E fazemos a seguinte revisão, que é conflitante com o trecho da base que apresentamos:
+\begin{framed}
+R:
+
+$(apaixonado\_chama\_pra\_sair \land fim\_de\_semana \land \neg amada\_aceita\_sair)$
+\end{framed}
+
+Com esta revisão temos três possibilidades de base de crenças. Mostramos abaixo cada uma delas (parcialmente).
+\begin{framed}
+K 1:
+
+$(amada\_aceita\_sair \lor fim\_de\_semana \lor \neg amada\_ama \lor \neg apaixonado\_chama\_pra\_sair)$
+
+K 2:
+
+$(amada\_aceita\_sair \lor amada\_ama \lor \neg apaixonado\_chama\_pra\_sair \lor \neg fim\_de\_semana)$
+
+K 3:
+
+$(amada\_aceita\_sair \lor apaixonado\_chama\_pra\_sair \lor \neg amada\_ama \lor \neg fim\_de\_semana)$
+ 
+\end{framed}
+
+Podemos ver que cada uma das três opções modifica algum átomo da regra que causa a inconsistência.
+Uma outra possível alternativa para acomodar a nova informação obtida, poderia ser negar a crença "amada\_ama". Porém, como o algoritmo considera apenas os átomos que estão presentes em ambos \textbf{K} e \textbf{R} para efetuar as substituições, a opção de negar "amada\_ama" não é considerada.
 
 
 % As figuras abaixo mostram os resultados obtidos:
